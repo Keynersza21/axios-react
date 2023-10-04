@@ -43,7 +43,6 @@ const ListaProductos = () => {
                 <button onClick={() => setPagina(pagina + 1)}>Siguiente</button> 
                 <p>Pagina {pagina}</p>
             </div>
-            
             ))
         }
     </div>
