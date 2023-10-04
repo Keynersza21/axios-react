@@ -1,13 +1,8 @@
-import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const LogApi = () => {
+const Registro = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [errorInput, setErrorInput] = useState(false);
-  const [getUser, setGetUser] = useState([])
-  const navigate = useNavigate();
 
   const sendForm = (e) => {
     e.preventDefault();
@@ -15,12 +10,15 @@ const LogApi = () => {
       name: name,
       password: password,
     };
+
+    
     if (!name || !password) {
       setErrorInput(true);
       console.log('Ingrese datos');
     } else {
-      axios.post('https://peticiones.online/api/products', obj).then((res) => {
-       getUser.push(res)
+      axios.post('https://peticiones.online/api/products', obj)
+      .then((res) => {
+       console.log('res', res);
         navigate('/');
       });
     }
@@ -51,4 +49,4 @@ const LogApi = () => {
   );
 };
 
-export default LogApi;
+export default Registro;

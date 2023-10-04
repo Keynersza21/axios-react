@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 
 const ListaProductos = () => {
     const [datos, setDatos] = useState([])
@@ -31,7 +32,10 @@ const ListaProductos = () => {
 
   return (
     <div>
-        <button onClick={lanzarPost}>Peticion POST</button>
+        <div>
+            <Link to={'/sesion'}>Iniciar Sesion</Link>
+        </div>
+      
       <div style={{flexWrap: "wrap", display: "flex", justifyContent: "center", textAlign: "center"}}>
     {
         datos.map((produc) =>(
