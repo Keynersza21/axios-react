@@ -3,20 +3,21 @@ import React, { useState } from 'react';
 const Registro = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  
 
   const sendForm = (e) => {
     e.preventDefault();
-    let obj = {
+    let body = {
       name: name,
       password: password,
     };
 
-    
+
     if (!name || !password) {
       setErrorInput(true);
       console.log('Ingrese datos');
     } else {
-      axios.post('https://peticiones.online/api/products', obj)
+      axios.post('https://peticiones.online/api/products', body)
       .then((res) => {
        console.log('res', res);
         navigate('/');

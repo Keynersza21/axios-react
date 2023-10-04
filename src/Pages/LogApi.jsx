@@ -15,15 +15,17 @@ const LogApi = () => {
       name: name,
       password: password,
     };
+
     if (!name || !password) {
       setErrorInput(true);
       console.log('Ingrese datos');
     } else {
       axios.post('https://peticiones.online/api/products', obj).then((res) => {
-       getUser.push(res)
-        navigate('/');
+        localStorage.setItem('User', res.data.name) 
+        console.log('res', res)
+        navigate('/')
       });
-    }
+    } 
   };
 
   return (
